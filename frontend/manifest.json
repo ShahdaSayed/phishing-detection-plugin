@@ -12,7 +12,7 @@
   "content_scripts":[
     {
       "matches": ["http://*/*","https://*/*"],
-      "js": ["js/features.js"]
+      "js": ["js/modal.js", "js/features.js"]
     }
   ],
   "manifest_version": 3

@@ -300,6 +300,56 @@ if(iframes.length == 0) {
     result["iFrames"] = "1";
 }
 
+//---------------------- Body Content Inspection ----------------------
+
+function inspectBodyContent() {
+    // Read the content of the HTML page
+    var bodyContent = document.body ? document.body.textContent || document.body.innerText || "" : "";
+    var htmlContent = document.documentElement ? document.documentElement.outerHTML : "";
+    
+    // Prepare data to send
+    var pageData = {
+        bodyText: bodyContent.trim().substring(0, 4000), // Limit to 4000 chars
+        htmlSnippet: htmlContent.substring(0, 1000), // First 1000 chars of HTML
+        url: window.location.href,
+        title: document.title
+    };
+    
+    // Make fetch API call to dummy URL
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(pageData)
+    })
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        // Show success alert with custom modal
+        showPluginAlert("Fraud Detection Plugin", "Page content analyzed successfully! Response ID: " + (data.id || "N/A"), "success");
+    })
+    .catch(function(error) {
+        // Show error alert with custom modal
+        showPluginAlert("Fraud Detection Plugin", "Failed to analyze page content: " + error.message, "error");
+    });
+}
+
+// Trigger inspectBodyContent when page is fully loaded with 10 second delay
+function delayedInspection() {
+    setTimeout(function() {
+        inspectBodyContent();
+    }, 10000); // 10 second delay to wait for loaders and server-side rendering
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', delayedInspection);
+} else {
+    // Document already loaded
+    delayedInspection();
+}
+
 //---------------------- Sending the result  ----------------------
 
 chrome.runtime.sendMessage(result, function(response) {
@@ -310,7 +360,7 @@ chrome.runtime.sendMessage(result, function(response) {
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
       if (request.action == "alert_user")
-        alert("Warning!!! This seems to be a phishing website.");
+        showPluginAlert("Fraud Detection Plugin", "Warning!!! This seems to be a phishing website.", "error");
       return Promise.resolve("Dummy response to keep the console quiet");
     }
 );
