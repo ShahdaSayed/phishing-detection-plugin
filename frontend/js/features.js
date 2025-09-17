@@ -315,20 +315,26 @@ function inspectBodyContent() {
         title: document.title
     };
     
-    // Make fetch API call to dummy URL
-    fetch('https://jsonplaceholder.typicode.com/posts', {
+    // Make fetch API call to chat endpoint
+    fetch('http://localhost:3000/api/chat', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(pageData)
+        body: JSON.stringify({
+            message: `Analyze this webpage for phishing indicators. URL: ${pageData.url}, Title: ${pageData.title}, Content: ${pageData.bodyText}`
+        })
     })
     .then(function(response) {
         return response.json();
     })
     .then(function(data) {
         // Show success alert with custom modal
-        showPluginAlert("Fraud Detection Plugin", "Page content analyzed successfully! Response ID: " + (data.id || "N/A"), "success");
+        if (data.success && data.response) {
+            showPluginAlert("Fraud Detection Plugin", "Page content analyzed successfully! AI Response: " + data.response, "success");
+        } else {
+            showPluginAlert("Fraud Detection Plugin", "Analysis completed but no response received", "warning");
+        }
     })
     .catch(function(error) {
         // Show error alert with custom modal
