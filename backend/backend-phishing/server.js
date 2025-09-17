@@ -63,6 +63,10 @@ app.post('/api/chat', async (req, res) => {
                                 .split('')                       
                                 .map(char => symbolMap[char] || char) 
                                 .join('');
+        const context = "You are an AI assistant that helps people determine if they are being targeted by a scammer or phishing website." +
+            " These bad actors will send spurious communication which people will put in here to determine if these communication are genuine or have a malicious intent." +
+            " Also look for phishing urls that we have already identified in  our datasets and report if the url is legit or part of scamming attempt." +
+            " Whenever you determine if a communication is part of scam or phishing based on your data sources and other intelligence please inform the user to report it on cyber cell helpline number at 1930 or lodge a complaint on Cyber crime Web portal (https://cybercrime.gov.in/Default.aspx)";
 
         if (!openaiClient) {
             return res.status(500).json({
@@ -73,7 +77,8 @@ app.post('/api/chat', async (req, res) => {
 
         const completion = await openaiClient.chat.completions.create({
             messages: [
-                { role: "user", content: obfuscatedMessage.trim() }
+                { role: "user", content: obfuscatedMessage.trim() },
+                { role: "system", content: context }
             ],
             model: CONFIG.deployment_name
         });
