@@ -25,8 +25,9 @@ function showPluginAlert(title, message, type) {
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        max-width: 400px;
-        width: 90%;
+        width: 70vw;
+        max-height: 70vh;
+        overflow-y: auto;
         border-left: 4px solid ${borderColor};
         background-color: ${bgColor};
     `;

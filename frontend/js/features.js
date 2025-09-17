@@ -322,7 +322,7 @@ function inspectBodyContent() {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            message: `Analyze this webpage for phishing indicators. URL: ${pageData.url}, Title: ${pageData.title}, Content: ${pageData.bodyText}`
+            message: `Analyze this webpage for scam or phishing indicators. URL: ${pageData.url}, Title: ${pageData.title}, Content: ${pageData.bodyText}, give the response strictly just as 'No' if the website seems to be safe. Otherwise, give a response saying what could be wrong with this website. Limit the character size to 1000, and the response should be in simple words that any common man can understand, without too much details. Add 2 sentences about what the threat is, and details about how to report it, with the contact, email or link. Response should be in html format.`
         })
     })
     .then(function(response) {
@@ -330,10 +330,10 @@ function inspectBodyContent() {
     })
     .then(function(data) {
         // Show success alert with custom modal
-        if (data.success && data.response) {
-            showPluginAlert("Fraud Detection Plugin", "Page content analyzed successfully! AI Response: " + data.response, "success");
+        if (data.success && data.response && data.response.trim().toLowerCase() !== "no") {
+            showPluginAlert("Fraud Alert!!", data.response, "error");
         } else {
-            showPluginAlert("Fraud Detection Plugin", "Analysis completed but no response received", "warning");
+            // showPluginAlert("Fraud Detection Plugin", "Analysis completed but no response received", "warning");
         }
     })
     .catch(function(error) {
@@ -360,7 +360,6 @@ if (document.readyState === 'loading') {
 
 chrome.runtime.sendMessage(result, function(response) {
     console.log(result);
-    //console.log(response);
 });
 
 chrome.runtime.onMessage.addListener(

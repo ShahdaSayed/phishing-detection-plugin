@@ -84,7 +84,7 @@ app.post('/api/chat', async (req, res) => {
             throw new Error('No response received from OpenAI');
         }
 
-        console.log('📥 Received response from OpenAI');
+        console.log('📥 Received response from OpenAI', response);
 
         res.json({
             success: true,
